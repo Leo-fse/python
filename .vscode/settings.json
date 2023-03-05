@@ -1,0 +1,32 @@
+{
+    "editor.formatOnSave": true,
+    "editor.trimAutoWhitespace": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "119" // githubの横幅に合わせてる
+    ],
+    "python.linting.flake8Args": [
+        "--max-line-length=119"
+    ],
+    "python.linting.mypyCategorySeverity.error": "Error",
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--follow-imports=silent", // mypyが再帰的に型チェックしていくルールの指定
+        "--show-column-numbers", // エラー発生箇所を行列数で明示する。
+        "--no-pretty", // プレーンテキスト形式で表示
+        "--warn-return-any", //返り値は正確に明示しないとユルサナイ
+        "--no-implicit-optional", // 型を明示した変数に None を入れるのをユルサナイ
+        "--disallow-untyped-calls", //　返り値が明示されていない関数を呼び出すのをユルサナイ
+        "--disallow-untyped-defs", //　関数に返り値の型を明示しないのをユルサナイ
+        "--ignore-missing-imports", // importしたライブラリ元に型明示がないのは仕方ないよね
+        "--follow-imports=skip", //importしたライブラリの型チェックは行わないよ
+    ],
+}
